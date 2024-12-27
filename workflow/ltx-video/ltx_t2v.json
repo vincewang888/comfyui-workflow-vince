@@ -1,0 +1,755 @@
+{
+  "last_node_id": 93,
+  "last_link_id": 207,
+  "nodes": [
+    {
+      "id": 73,
+      "type": "KSamplerSelect",
+      "pos": [
+        996,
+        -132
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            172
+          ],
+          "slot_index": 0,
+          "label": "SAMPLER",
+          "localized_name": "SAMPLER"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "euler"
+      ]
+    },
+    {
+      "id": 71,
+      "type": "LTXVScheduler",
+      "pos": [
+        996,
+        -36
+      ],
+      "size": [
+        210,
+        154
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "link": 168,
+          "shape": 7,
+          "label": "latent",
+          "localized_name": "latent"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            182
+          ],
+          "slot_index": 0,
+          "label": "SIGMAS",
+          "localized_name": "SIGMAS"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LTXVScheduler"
+      },
+      "widgets_values": [
+        30,
+        2.05,
+        0.95,
+        true,
+        0.1
+      ]
+    },
+    {
+      "id": 69,
+      "type": "LTXVConditioning",
+      "pos": [
+        996,
+        -432
+      ],
+      "size": [
+        223.8660125732422,
+        78
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 169,
+          "label": "positive",
+          "localized_name": "positive"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 170,
+          "label": "negative",
+          "localized_name": "negative"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            166
+          ],
+          "slot_index": 0,
+          "label": "positive",
+          "localized_name": "positive"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            167
+          ],
+          "slot_index": 1,
+          "label": "negative",
+          "localized_name": "negative"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LTXVConditioning"
+      },
+      "widgets_values": [
+        25
+      ]
+    },
+    {
+      "id": 38,
+      "type": "CLIPLoader",
+      "pos": [
+        -116.29347229003906,
+        -200.4448699951172
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            74,
+            75
+          ],
+          "slot_index": 0,
+          "label": "CLIP",
+          "localized_name": "CLIP"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp8_e4m3fn.safetensors",
+        "ltxv"
+      ]
+    },
+    {
+      "id": 44,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -116.78071594238281,
+        -352.1754150390625
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            205
+          ],
+          "slot_index": 0,
+          "label": "MODEL",
+          "localized_name": "MODEL"
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": null,
+          "label": "CLIP",
+          "localized_name": "CLIP"
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            87
+          ],
+          "slot_index": 2,
+          "label": "VAE",
+          "localized_name": "VAE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "ltx-video-2b-v0.9.1.safetensors"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        323.71612548828125,
+        -434.35723876953125
+      ],
+      "size": [
+        453.9386901855469,
+        239.49794006347656
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 74,
+          "label": "clip",
+          "localized_name": "clip"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            169
+          ],
+          "slot_index": 0,
+          "label": "CONDITIONING",
+          "localized_name": "CONDITIONING"
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "Rolling hills at sunrise, a sea of clouds filling the valleys below. A sweeping aerial shot begins at a wide angle, slowly pushing in towards a solitary mountain peak piercing through the mist. The first rays of sun paint the clouds with hues of orange, pink, and gold. A soft, ethereal light filters through the clouds, creating a dreamy, almost painterly effect. The camera gradually descends from above, tracing the contours of the landscape. Utilize a shallow depth of field effect, focusing on the details of the foreground grass while the background maintains a soft dreamlike quality. Capture the sense of depth and distance, using atmospheric perspective. The camera slowly follows a meandering river snaking through the mountains, enhancing the flow and natural rhythm of the scene.",
+        true
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 72,
+      "type": "SamplerCustom",
+      "pos": [
+        1330.082275390625,
+        -437.46728515625
+      ],
+      "size": [
+        236.8000030517578,
+        230
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 205,
+          "label": "model",
+          "localized_name": "model"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 166,
+          "label": "positive",
+          "localized_name": "positive"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 167,
+          "label": "negative",
+          "localized_name": "negative"
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 172,
+          "label": "sampler",
+          "localized_name": "sampler"
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 182,
+          "label": "sigmas",
+          "localized_name": "sigmas"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 175,
+          "label": "latent_image",
+          "localized_name": "latent_image"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            171
+          ],
+          "slot_index": 0,
+          "label": "output",
+          "localized_name": "output"
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": null,
+          "label": "denoised_output",
+          "localized_name": "denoised_output"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustom"
+      },
+      "widgets_values": [
+        true,
+        0,
+        "fixed",
+        3
+      ]
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1594.2392578125,
+        -431.2471923828125
+      ],
+      "size": [
+        140,
+        52.00886154174805
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 171,
+          "label": "samples",
+          "localized_name": "samples"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 87,
+          "label": "vae",
+          "localized_name": "vae"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            207
+          ],
+          "slot_index": 0,
+          "label": "IMAGE",
+          "localized_name": "IMAGE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 77,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1773.3875732421875,
+        -441.1322937011719
+      ],
+      "size": [
+        548.849853515625,
+        676.5665893554688
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 207,
+          "label": "images",
+          "localized_name": "images"
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7,
+          "label": "audio",
+          "localized_name": "audio"
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7,
+          "label": "meta_batch",
+          "localized_name": "meta_batch"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7,
+          "label": "vae",
+          "localized_name": "vae"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "label": "Filenames",
+          "localized_name": "Filenames"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "ltx",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": false,
+        "pingpong": false,
+        "save_output": false,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "ltx_00003.mp4",
+            "subfolder": "",
+            "type": "temp",
+            "format": "video/h264-mp4",
+            "frame_rate": 24
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 70,
+      "type": "EmptyLTXVLatentVideo",
+      "pos": [
+        988.0174560546875,
+        -308.03509521484375
+      ],
+      "size": [
+        210,
+        130
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            168,
+            175
+          ],
+          "slot_index": 0,
+          "label": "LATENT",
+          "localized_name": "LATENT"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLTXVLatentVideo"
+      },
+      "widgets_values": [
+        768,
+        512,
+        49,
+        1
+      ]
+    },
+    {
+      "id": 91,
+      "type": "Note",
+      "pos": [
+        990.2405395507812,
+        173.45553588867188
+      ],
+      "size": [
+        696.491455078125,
+        334.8246765136719
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        " max_shift\n定义: 最大偏移量，指单帧与下一帧之间允许的最大移动距离或变化量。\n作用: 控制视频中动态效果的强度。如果值较大，生成的视频会有更显著的运动或变化；如果值较小，运动幅度会更平滑和细微。\n应用场景: 当您希望在生成的视频中展现较强烈的动态效果时，可以增加 max_shift 的值。\n2. base_shift\n定义: 基础偏移量，用于定义每一帧之间的基本位移或变化幅度。\n作用: 决定视频生成中基本运动的起点强度，通常与 max_shift 配合使用。如果值较低，视频中的变化更细腻；如果值较高，变化会更明显。\n应用场景: 如果需要生成一种稳定但略微动态的效果，可以调整 base_shift 的值。\n二者关系\n配合使用: base_shift 是最小偏移量的基准，而 max_shift 则是变化范围的上限。调整这两个参数的比例，可以在生成视频时更好地控制镜头运动或动态纹理效果。\n示例:\n当 base_shift 较大但 max_shift 较小时，生成的视频会呈现出统一但有规律的运动。\n当 max_shift 大幅高于 base_shift 时，生成的视频会有更多随机性和跳跃感。\n建议调整\n如果想要平滑过渡的电影化效果，可以尝试让 base_shift 值小一些，而 max_shift 稍微高一些。\n如果想要生成具有强烈动态变化的视频，可以增大 max_shift 的值，同时适当调高 base_shift。"
+      ],
+      "color": "#c09430"
+    },
+    {
+      "id": 93,
+      "type": "Note",
+      "pos": [
+        245.47872924804688,
+        181.5931854248047
+      ],
+      "size": [
+        696.491455078125,
+        334.8246765136719
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "提示词：为 AI 视频生成器制作详细的提示语，避免使用引号。当我提供一个描述或图像时，将其转换为能体现电影般品质的提示语，重点关注场景、风格、氛围、灯光和具体的视觉细节。确保提示语能够营造一种丰富且沉浸式的氛围，突出纹理、深度和真实感。始终加入缓慢的镜头移动或电影化的动态效果，以增强画面的流畅感和视觉叙事效果。保持用词精准又富有描述性，直接可用，旨在实现高质量且具有电影风格的效果，提示词用英文给我\n\n\n\n\n宽高应该为32的整数倍\n\n帧数应为 (8 * N) + 1 帧长，例如：\n\n17\n25\n33\n41\n49\n...\n依此类推"
+      ],
+      "color": "#c09430"
+    },
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [
+        320.5361022949219,
+        -136.1095428466797
+      ],
+      "size": [
+        285.6000061035156,
+        175.3669891357422
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 75,
+          "label": "clip",
+          "localized_name": "clip"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            170
+          ],
+          "slot_index": 0,
+          "label": "CONDITIONING",
+          "localized_name": "CONDITIONING"
+        }
+      ],
+      "title": "CLIP Text Encode (Negative Prompt)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "low quality, worst quality, deformed, distorted, disfigured, motion smear, motion artifacts, fused fingers, bad anatomy, weird hand, ugly",
+        true
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    }
+  ],
+  "links": [
+    [
+      74,
+      38,
+      0,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      75,
+      38,
+      0,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      87,
+      44,
+      2,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      166,
+      69,
+      0,
+      72,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      167,
+      69,
+      1,
+      72,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      168,
+      70,
+      0,
+      71,
+      0,
+      "LATENT"
+    ],
+    [
+      169,
+      6,
+      0,
+      69,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      170,
+      7,
+      0,
+      69,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      171,
+      72,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      172,
+      73,
+      0,
+      72,
+      3,
+      "SAMPLER"
+    ],
+    [
+      175,
+      70,
+      0,
+      72,
+      5,
+      "LATENT"
+    ],
+    [
+      182,
+      71,
+      0,
+      72,
+      4,
+      "SIGMAS"
+    ],
+    [
+      205,
+      44,
+      0,
+      72,
+      0,
+      "MODEL"
+    ],
+    [
+      207,
+      8,
+      0,
+      77,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6588450000000006,
+      "offset": [
+        29.384445474792994,
+        724.1504503488387
+      ]
+    },
+    "workspace_info": {
+      "id": "sG1EL2PdDhDvg15J5j0qd"
+    }
+  },
+  "version": 0.4
+}

@@ -1,0 +1,1347 @@
+{
+  "last_node_id": 67,
+  "last_link_id": 148,
+  "nodes": [
+    {
+      "id": 48,
+      "type": "KSamplerSelect",
+      "pos": [
+        1867.895751953125,
+        -2.525236129760742
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            106,
+            121
+          ],
+          "slot_index": 0,
+          "label": "SAMPLER",
+          "localized_name": "SAMPLER"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "euler"
+      ]
+    },
+    {
+      "id": 50,
+      "type": "LTXVConditioning",
+      "pos": [
+        1870.878173828125,
+        -377.1424865722656
+      ],
+      "size": [
+        320.27752685546875,
+        81.11004638671875
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 113,
+          "label": "positive",
+          "localized_name": "positive"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 114,
+          "label": "negative",
+          "localized_name": "negative"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            104,
+            119
+          ],
+          "slot_index": 0,
+          "label": "positive",
+          "localized_name": "positive"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            105,
+            120
+          ],
+          "slot_index": 1,
+          "label": "negative",
+          "localized_name": "negative"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LTXVConditioning"
+      },
+      "widgets_values": [
+        25
+      ]
+    },
+    {
+      "id": 49,
+      "type": "ModifyLTXModel",
+      "pos": [
+        1554.90576171875,
+        -838.7713012695312
+      ],
+      "size": [
+        210,
+        26
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 112,
+          "label": "model",
+          "localized_name": "model"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            115
+          ],
+          "slot_index": 0,
+          "label": "MODEL",
+          "localized_name": "MODEL"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModifyLTXModel"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 54,
+      "type": "FreeMemoryLatent",
+      "pos": [
+        2348.95947265625,
+        -57.383949279785156
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "link": 117,
+          "label": "latent",
+          "localized_name": "latent"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            108,
+            143
+          ],
+          "slot_index": 0,
+          "label": "LATENT",
+          "localized_name": "LATENT"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FreeMemoryLatent"
+      },
+      "widgets_values": [
+        false
+      ]
+    },
+    {
+      "id": 53,
+      "type": "LTXPerturbedAttention",
+      "pos": [
+        1835.310302734375,
+        -868.7437133789062
+      ],
+      "size": [
+        243.60000610351562,
+        126
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 115,
+          "label": "model",
+          "localized_name": "model"
+        },
+        {
+          "name": "attn_override",
+          "type": "ATTN_OVERRIDE",
+          "link": 116,
+          "shape": 7,
+          "label": "attn_override",
+          "localized_name": "attn_override"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            142
+          ],
+          "slot_index": 0,
+          "label": "MODEL",
+          "localized_name": "MODEL"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LTXPerturbedAttention"
+      },
+      "widgets_values": [
+        1,
+        0.25,
+        3
+      ]
+    },
+    {
+      "id": 55,
+      "type": "SamplerCustom",
+      "pos": [
+        2198.723876953125,
+        -908.0804443359375
+      ],
+      "size": [
+        312.0632019042969,
+        265.35089111328125
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 142,
+          "label": "model",
+          "localized_name": "model"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 119,
+          "label": "positive",
+          "localized_name": "positive"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 120,
+          "label": "negative",
+          "localized_name": "negative"
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 121,
+          "label": "sampler",
+          "localized_name": "sampler"
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 122,
+          "label": "sigmas",
+          "localized_name": "sigmas"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 143,
+          "label": "latent_image",
+          "localized_name": "latent_image"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            95
+          ],
+          "slot_index": 0,
+          "label": "output",
+          "localized_name": "output"
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": null,
+          "label": "denoised_output",
+          "localized_name": "denoised_output"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustom"
+      },
+      "widgets_values": [
+        true,
+        543114984539445,
+        "randomize",
+        3
+      ]
+    },
+    {
+      "id": 44,
+      "type": "SamplerCustom",
+      "pos": [
+        2351.01806640625,
+        -422.3866882324219
+      ],
+      "size": [
+        355.20001220703125,
+        230
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 103,
+          "label": "model",
+          "localized_name": "model"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 104,
+          "label": "positive",
+          "localized_name": "positive"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 105,
+          "label": "negative",
+          "localized_name": "negative"
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 106,
+          "label": "sampler",
+          "localized_name": "sampler"
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 107,
+          "label": "sigmas",
+          "localized_name": "sigmas"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 108,
+          "label": "latent_image",
+          "localized_name": "latent_image"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            97
+          ],
+          "slot_index": 0,
+          "label": "output",
+          "localized_name": "output"
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": null,
+          "label": "denoised_output",
+          "localized_name": "denoised_output"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustom"
+      },
+      "widgets_values": [
+        true,
+        110619257691312,
+        "randomize",
+        3
+      ]
+    },
+    {
+      "id": 41,
+      "type": "VAEDecode",
+      "pos": [
+        2766.5771484375,
+        -413.0721130371094
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 97,
+          "label": "samples",
+          "localized_name": "samples"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 98,
+          "label": "vae",
+          "localized_name": "vae"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            144
+          ],
+          "slot_index": 0,
+          "label": "IMAGE",
+          "localized_name": "IMAGE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 60,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        3694.226318359375,
+        -565.9016723632812
+      ],
+      "size": [
+        393.4928894042969,
+        539.9255981445312
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 132,
+          "label": "images",
+          "localized_name": "images"
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7,
+          "label": "audio",
+          "localized_name": "audio"
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7,
+          "label": "meta_batch",
+          "localized_name": "meta_batch"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7,
+          "label": "vae",
+          "localized_name": "vae"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "label": "Filenames",
+          "localized_name": "Filenames"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": false,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "AnimateDiff_00037.mp4",
+            "subfolder": "",
+            "type": "temp",
+            "format": "video/h264-mp4",
+            "frame_rate": 24
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 67,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        3260.459228515625,
+        -572.3200073242188
+      ],
+      "size": [
+        393.4928894042969,
+        539.9255981445312
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 144,
+          "label": "images",
+          "localized_name": "images"
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7,
+          "label": "audio",
+          "localized_name": "audio"
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7,
+          "label": "meta_batch",
+          "localized_name": "meta_batch"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7,
+          "label": "vae",
+          "localized_name": "vae"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "label": "Filenames",
+          "localized_name": "Filenames"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": false,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "AnimateDiff_00036.mp4",
+            "subfolder": "",
+            "type": "temp",
+            "format": "video/h264-mp4",
+            "frame_rate": 24
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 47,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1306.96826171875,
+        -291.90032958984375
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 111,
+          "label": "clip",
+          "localized_name": "clip"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            125
+          ],
+          "slot_index": 0,
+          "label": "CONDITIONING",
+          "localized_name": "CONDITIONING"
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "This is a highly detailed, digital CGI image of a young Asian woman dressed as Sailor Moon. She has fair skin, short blue hair with bangs, and is adorned with a blue and white sailor suit with a bow. Her expression is serious and contemplative. She is surrounded by ice shards, and her outfit and gloves are also made of ice, giving a crystalline texture. The background is dark, enhancing the icy effect. The image combines elements of anime and fantasy art styles.",
+        true
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 52,
+      "type": "LTXAttnOverride",
+      "pos": [
+        1564.2913818359375,
+        -747.5497436523438
+      ],
+      "size": [
+        210,
+        81
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "ATTN_OVERRIDE",
+          "type": "ATTN_OVERRIDE",
+          "links": [
+            116
+          ],
+          "slot_index": 0,
+          "label": "ATTN_OVERRIDE",
+          "localized_name": "ATTN_OVERRIDE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LTXAttnOverride"
+      },
+      "widgets_values": [
+        "14",
+        true
+      ]
+    },
+    {
+      "id": 37,
+      "type": "VAEDecode",
+      "pos": [
+        2574.4169921875,
+        -894.7611694335938
+      ],
+      "size": [
+        140,
+        52.00886154174805
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 95,
+          "label": "samples",
+          "localized_name": "samples"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 96,
+          "label": "vae",
+          "localized_name": "vae"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            132
+          ],
+          "slot_index": 0,
+          "label": "IMAGE",
+          "localized_name": "IMAGE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 35,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1306.2366943359375,
+        -54.90727615356445
+      ],
+      "size": [
+        425.27801513671875,
+        180.6060791015625
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 93,
+          "label": "clip",
+          "localized_name": "clip"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            126
+          ],
+          "slot_index": 0,
+          "label": "CONDITIONING",
+          "localized_name": "CONDITIONING"
+        }
+      ],
+      "title": "CLIP Text Encode (Negative Prompt)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "low quality, worst quality, deformed, distorted, disfigured, motion smear, motion artifacts, fused fingers, bad anatomy, weird hand, ugly",
+        true
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 46,
+      "type": "LTXVScheduler",
+      "pos": [
+        1863.895751953125,
+        95.93090057373047
+      ],
+      "size": [
+        315,
+        154
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "link": 110,
+          "shape": 7,
+          "label": "latent",
+          "localized_name": "latent"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            107,
+            122
+          ],
+          "slot_index": 0,
+          "label": "SIGMAS",
+          "localized_name": "SIGMAS"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LTXVScheduler"
+      },
+      "widgets_values": [
+        20,
+        2.05,
+        0.9500000000000001,
+        true,
+        0.1
+      ]
+    },
+    {
+      "id": 57,
+      "type": "LTXVImgToVideo",
+      "pos": [
+        1870.895751953125,
+        -254.069091796875
+      ],
+      "size": [
+        315,
+        214
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 125,
+          "label": "positive",
+          "localized_name": "positive"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 126,
+          "label": "negative",
+          "localized_name": "negative"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 127,
+          "label": "vae",
+          "localized_name": "vae"
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 148,
+          "label": "image",
+          "localized_name": "image"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            113
+          ],
+          "slot_index": 0,
+          "label": "positive",
+          "localized_name": "positive"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            114
+          ],
+          "slot_index": 1,
+          "label": "negative",
+          "localized_name": "negative"
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            110,
+            117
+          ],
+          "slot_index": 2,
+          "label": "latent",
+          "localized_name": "latent"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LTXVImgToVideo"
+      },
+      "widgets_values": [
+        640,
+        1024,
+        49,
+        1,
+        0.15
+      ]
+    },
+    {
+      "id": 51,
+      "type": "LoadImage",
+      "pos": [
+        1299.0113525390625,
+        4.754567623138428
+      ],
+      "size": [
+        385.15606689453125,
+        333.3305358886719
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            148
+          ],
+          "slot_index": 0,
+          "label": "IMAGE",
+          "localized_name": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "label": "MASK",
+          "localized_name": "MASK"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "cc7250004a7c79099591e161d0531b9.png",
+        "image"
+      ]
+    },
+    {
+      "id": 58,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        850.4014282226562,
+        -251.0805206298828
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            103,
+            112
+          ],
+          "slot_index": 0,
+          "label": "MODEL",
+          "localized_name": "MODEL"
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": null,
+          "label": "CLIP",
+          "localized_name": "CLIP"
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            96,
+            98,
+            127
+          ],
+          "slot_index": 2,
+          "label": "VAE",
+          "localized_name": "VAE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "ltx-video-2b-v0.9.1.safetensors"
+      ]
+    },
+    {
+      "id": 40,
+      "type": "CLIPLoader",
+      "pos": [
+        835.767822265625,
+        -61.03144836425781
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            93,
+            111
+          ],
+          "slot_index": 0,
+          "label": "CLIP",
+          "localized_name": "CLIP"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp8_e4m3fn.safetensors",
+        "ltxv"
+      ]
+    }
+  ],
+  "links": [
+    [
+      93,
+      40,
+      0,
+      35,
+      0,
+      "CLIP"
+    ],
+    [
+      95,
+      55,
+      0,
+      37,
+      0,
+      "LATENT"
+    ],
+    [
+      96,
+      58,
+      2,
+      37,
+      1,
+      "VAE"
+    ],
+    [
+      97,
+      44,
+      0,
+      41,
+      0,
+      "LATENT"
+    ],
+    [
+      98,
+      58,
+      2,
+      41,
+      1,
+      "VAE"
+    ],
+    [
+      103,
+      58,
+      0,
+      44,
+      0,
+      "MODEL"
+    ],
+    [
+      104,
+      50,
+      0,
+      44,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      105,
+      50,
+      1,
+      44,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      106,
+      48,
+      0,
+      44,
+      3,
+      "SAMPLER"
+    ],
+    [
+      107,
+      46,
+      0,
+      44,
+      4,
+      "SIGMAS"
+    ],
+    [
+      108,
+      54,
+      0,
+      44,
+      5,
+      "LATENT"
+    ],
+    [
+      110,
+      57,
+      2,
+      46,
+      0,
+      "LATENT"
+    ],
+    [
+      111,
+      40,
+      0,
+      47,
+      0,
+      "CLIP"
+    ],
+    [
+      112,
+      58,
+      0,
+      49,
+      0,
+      "MODEL"
+    ],
+    [
+      113,
+      57,
+      0,
+      50,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      114,
+      57,
+      1,
+      50,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      115,
+      49,
+      0,
+      53,
+      0,
+      "MODEL"
+    ],
+    [
+      116,
+      52,
+      0,
+      53,
+      1,
+      "ATTN_OVERRIDE"
+    ],
+    [
+      117,
+      57,
+      2,
+      54,
+      0,
+      "LATENT"
+    ],
+    [
+      119,
+      50,
+      0,
+      55,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      120,
+      50,
+      1,
+      55,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      121,
+      48,
+      0,
+      55,
+      3,
+      "SAMPLER"
+    ],
+    [
+      122,
+      46,
+      0,
+      55,
+      4,
+      "SIGMAS"
+    ],
+    [
+      125,
+      47,
+      0,
+      57,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      126,
+      35,
+      0,
+      57,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      127,
+      58,
+      2,
+      57,
+      2,
+      "VAE"
+    ],
+    [
+      132,
+      37,
+      0,
+      60,
+      0,
+      "IMAGE"
+    ],
+    [
+      142,
+      53,
+      0,
+      55,
+      0,
+      "MODEL"
+    ],
+    [
+      143,
+      54,
+      0,
+      55,
+      5,
+      "LATENT"
+    ],
+    [
+      144,
+      41,
+      0,
+      67,
+      0,
+      "IMAGE"
+    ],
+    [
+      148,
+      51,
+      0,
+      57,
+      3,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 2,
+      "title": "STG视频增强",
+      "bounding": [
+        1494.1932373046875,
+        -1038.7196044921875,
+        1285.337646484375,
+        458.99658203125
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7247295000000011,
+      "offset": [
+        -866.5905121343587,
+        673.3167313931434
+      ]
+    },
+    "workspace_info": {
+      "id": "c8iYAbtGcRba9mXq3tboL"
+    }
+  },
+  "version": 0.4
+}
